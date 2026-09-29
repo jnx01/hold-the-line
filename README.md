@@ -36,6 +36,7 @@ question is simple:
 ```
                  SAME MODEL, SAME QUESTION, SAME FIRST ANSWER
                     │
+            user pushes back
           ┌─────────┴─────────┐
           │                   │
      NO THINKING          THINKING
@@ -45,8 +46,6 @@ question is simple:
       faster               slower
           │                   │
           └─────────┬─────────┘
-                    │
-            user pushes back
                     │
                     ▼
           does the model keep
