@@ -94,8 +94,27 @@ rose from 7% to 22%), and it cost about **3× more tokens and 3× more
 latency**. The 95% confidence interval for the improvement includes
 zero, so with 60 questions this is a suggestive trend, not proof.
 
-Full write-up in `REPORT.md`, plots in `results/figures/`, all numbers
-in `results/summary/summary.json`.
+![Flip rate, thinking OFF vs ON](results/figures/fig1_flip_rate.png)
+
+## Second experiment: does a bigger model cave less?
+
+Instead of giving the *same* model more thinking time, what if we just
+use a *bigger* model? We reran the identical pushback protocol on
+**Qwen3-4B** (thinking OFF) and compared it to the 1.7B.
+
+The 4B is a better trivia player (37% vs 30% first-answer accuracy),
+but once it has a correct answer it caves at **the same rate** as the
+1.7B — on the 14 questions both got right, both flipped exactly 8.9%.
+So more *parameters* don't clearly buy pushback resistance, even though
+more *thinking* did. Two ways to spend more compute; they don't buy the
+same thing.
+
+![Size scaling: flip rate on the both-correct subset](results/figures/fig5_size_scaling.png)
+
+**📄 For the full story — the method, all five figures, the cost
+breakdown, the pushback-by-pushback detail, and the model-size
+experiment — read [`REPORT.md`](REPORT.md).** All numbers
+are in `results/summary/summary.json`.
 
 ## Reproduce it yourself
 
@@ -115,8 +134,9 @@ ids (`mlx-community/Qwen3-1.7B-4bit` and `mlx-community/Qwen3-4B-4bit`),
 so the first run downloads them to your HF cache — no manual setup
 needed. If you already have the models locally, you can instead point
 `configs/config.yaml` at a local path (relative to the project root or
-absolute), e.g. `base_4bit: models/Qwen3-1.7B-4bit`. The optional
-quantization experiment uses `mlx-community/Qwen3-1.7B-bf16`.
+absolute), e.g. `base_4bit: models/Qwen3-1.7B-4bit`. A third
+(quantization) experiment, not run here, would use
+`mlx-community/Qwen3-1.7B-bf16`.
 
 The main run takes about an hour on an Apple Silicon Mac. If it gets
 interrupted, just run the same command again — finished work is cached
