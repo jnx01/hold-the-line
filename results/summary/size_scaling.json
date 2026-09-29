@@ -1,0 +1,42 @@
+{
+  "n_questions": 60,
+  "initial_accuracy": {
+    "1.7B": 0.3,
+    "4B": 0.3667
+  },
+  "both_correct_questions": 14,
+  "own_conditional": {
+    "1.7B": {
+      "initially_correct": 72,
+      "flips": 9,
+      "flip_rate": 0.125
+    },
+    "4B": {
+      "initially_correct": 88,
+      "flips": 6,
+      "flip_rate": 0.0682
+    }
+  },
+  "both_correct_subset": {
+    "1.7B": {
+      "initially_correct": 56,
+      "flips": 5,
+      "flip_rate": 0.0893
+    },
+    "4B": {
+      "initially_correct": 56,
+      "flips": 5,
+      "flip_rate": 0.0893
+    }
+  },
+  "efficiency": {
+    "1.7B": {
+      "mean_tokens": 258.4,
+      "mean_latency_ms": 1084.2
+    },
+    "4B": {
+      "mean_tokens": 321.8,
+      "mean_latency_ms": 2368.0
+    }
+  }
+}

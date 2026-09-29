@@ -1,0 +1,18 @@
+# Pinned to match the known-working budgeted_model_routing environment.
+mlx==0.32.2
+mlx-lm==0.31.3
+
+# TriviaQA dataset download.
+datasets==5.0.1
+
+# Groq API client for the judge model.
+groq
+
+# Config file parsing.
+pyyaml
+
+# Analysis, statistics, and plots.
+numpy==2.5.3
+pandas==3.0.5
+matplotlib==3.11.2
+scipy

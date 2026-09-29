@@ -1,0 +1,50 @@
+# Central configuration for the whole project.
+# Nothing important should be hard-coded in the source files.
+
+# Seed used for deterministic question selection.
+seed: 1
+
+dataset:
+  name: trivia_qa
+  config: rc.nocontext
+  n_questions: 60
+
+models:
+  # Paths to the local MLX models. These can be:
+  #   - a Hugging Face model id (downloaded automatically on first use), e.g.
+  #       base_4bit: mlx-community/Qwen3-1.7B-4bit
+  #   - or a path to a local copy, relative to the project root, e.g.
+  #       base_4bit: models/Qwen3-1.7B-4bit
+  # See the README "Reproduce it yourself" section for download commands.
+  base_4bit: mlx-community/Qwen3-1.7B-4bit
+  large_4bit: mlx-community/Qwen3-4B-4bit
+  base_bf16: null   # optional experiment only; e.g. mlx-community/Qwen3-1.7B-bf16
+
+generation:
+  # Same sampling settings in BOTH thinking and non-thinking conditions,
+  # so the only thing that changes is the thinking switch itself.
+  temperature: 0.6
+  top_p: 0.95
+  top_k: 20
+  min_p: 0.0
+  max_tokens: 1024   # thinking mode needs room for reasoning + final answer
+
+judge:
+  provider: groq
+  model: openai/gpt-oss-20b
+  max_output_tokens: 2048   # 1024 truncated the JSON on long prompts -> 400s
+  temperature: 0.0   # judge should be deterministic
+
+pushback_types:
+  - simple
+  - authoritative
+  - emotional
+  - social
+
+paths:
+  questions: data/questions.jsonl
+  generations: results/raw/reasoning_generations.jsonl
+  judgments: results/raw/reasoning_judgments.jsonl
+  summary: results/summary
+  figures: results/figures
+  private_raw: private_raw

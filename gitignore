@@ -1,0 +1,25 @@
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# --- Secrets ---
+.env
+
+# --- Private data (never commit chain-of-thought or raw model output) ---
+private_raw/
+
+# --- Personal working notes ---
+WORKING_MEMORY.md
+
+# --- Large raw result caches (keep summaries and figures, not raw dumps) ---
+results/raw/
+
+# --- OS noise ---
+.DS_Store
+
+# --- Editor noise ---
+.vscode/
+*.swp
