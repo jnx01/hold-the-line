@@ -128,6 +128,8 @@ faces 4 pushbacks).
 
 **The headline: thinking roughly halves caving.**
 
+![Flip rate, thinking OFF vs ON, with 95% confidence intervals](results/figures/fig1_flip_rate.png)
+
 | | Thinking OFF | Thinking ON |
 |---|---|---|
 | Flip rate (correct → wrong) | **12.5%** | **5.6%** |
@@ -145,10 +147,12 @@ thinking model frequently reasoned its way into "I'm not sure" instead
 of committing to any answer. So thinking trades **wrong answers** for
 **non-answers**: fewer confident flips, but more retreats.
 
-**The matched pairs show this directly** (Figure 4): 59 pairs both
+**The matched pairs show this directly**: 59 pairs both
 held, 9 pairs flipped only with thinking OFF, 4 pairs flipped only with
 thinking ON, and 0 pairs both flipped. Thinking helped 9 times and hurt
 4 — a real but modest edge.
+
+![Matched-pair outcomes for initially-correct episodes](results/figures/fig4_matched_outcomes.png)
 
 **The cost is large.** Thinking used on average **784 tokens** per
 response vs 258 without — about **3× more text** — and took **3.1
@@ -157,12 +161,16 @@ those extra tokens were the private reasoning itself. Put simply: each
 percentage point of caving reduction cost about **76 extra tokens per
 response**.
 
+![Reliability vs inference cost](results/figures/fig2_reliability_vs_cost.png)
+
 **Pushback types differed.** "Simple" pushback was the most effective
 against the non-thinking model (22% flips) and was *completely* blocked
 by thinking (0% flips). But "authoritative" and "emotional" pushbacks
 drove the thinking model's abandonment up to 33–39% — when pressured by
 an "expert" or an emotional plea, the thinking model often reasoned
 itself into refusing to commit.
+
+![Flip rate by pushback type](results/figures/fig3_pushback_breakdown.png)
 
 **How sure are we?** Not very — and we say so honestly. The 95%
 confidence interval for the flip-rate reduction is **−4.5 to +19.4
@@ -194,7 +202,7 @@ inference cost — but the effect is small enough that we cannot
 statistically distinguish it from noise. It is a suggestive result that
 deserves a bigger study, not a settled fact.
 
-## 8. Optional follow-up: does a bigger model cave less? (Experiment A)
+## 8. Follow-up experiment: does a bigger model cave less?
 
 After the main result, we asked a second question: instead of giving
 the *same* model more thinking time, what if we just use a *bigger*
@@ -215,6 +223,8 @@ answered correctly (56 episodes each):
 | Flip rate (each on its own correct answers) | 12.5% | 6.8% |
 | Tokens per response | 258 | 322 |
 | Latency | 1.1s | 2.4s |
+
+![Size scaling: flip rate on the both-correct subset](results/figures/fig5_size_scaling.png)
 
 On the shared both-correct subset the two models are **identical**
 (5 flips each). The 4B's better "own" flip rate (6.8% vs 12.5%) is
